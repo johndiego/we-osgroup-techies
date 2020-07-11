@@ -27,11 +27,15 @@
 		</header>
 		
 		<section>
+			<header>
+				<h1>Upcoming Events ...</h1>
+				<hr>
+			</header>
 
 		     <table>
 			     <tr>
 				     <td> {% for event in details %}</td>
-				      <td>   {{ event.name }} </td>
+				     <td><h1>{{ event.name }}</h1> </td>
 				      {% endfor %}
 			     </tr>
 		     </table>

@@ -52,3 +52,9 @@ th, td {
   padding: 15px;
   text-align: left;
 }
+hr{
+	 position: relative;
+         width: 20%;
+         background: black;
+}
+
