@@ -1,11 +1,15 @@
-FROM django:3.0.7
+FROM python:3.7-slim
 MAINTAINER osgroup-techies.com
-
 RUN mkdir -p /apt/demoproject
+ADD reqs.txt/ /app/demoproject/
+WORKDIR /app/demoproject/
+RUN apt-get update && apt-get install -y --no-install-recommends \
+build-essential \
+libpq-dev \
+libpcre3-dev \
 
-ADD cidemoapp/ /app/demoproject/
+RUN pip install --no-cache-dir -r reqs.txt
 
-WORKDIR /app/demoproject/cidemoapp/
 
 EXPOSE 8000
 
