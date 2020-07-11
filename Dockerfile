@@ -7,7 +7,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 build-essential \
 libpq-dev \
 libpcre3-dev \
-pip install -r reqs.txt
+pip install reqs.txt
 ADD cidemoapp/ /opt/demoproject
 WORKDIR /opt/demoproject/cidemoapp
 EXPOSE 8000
