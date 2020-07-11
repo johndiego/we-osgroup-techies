@@ -11,4 +11,14 @@ node("Django-Node") {
                 sh " git log -5 "
             }
      }
+  
+    stage (" TEST " ){
+    
+           sh "python devops4u/manage.py test devops4u/dsa"
+ 
+   }
+
+
+     
+     
 }
