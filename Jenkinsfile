@@ -21,7 +21,7 @@ node("Django-Node") {
 
     stage(" BUILD IMAGE AND PUSH TO REGISTRY "){
 
-     
+         sh "docker build -t cidemo:v1 ." 
 
     }
 
