@@ -6,5 +6,9 @@ node {
                
                  checkout scm
              }
+          
+            stage("Latest Changes Pushed "){
+                sh " git log -5 "
+            }
      }
 }
