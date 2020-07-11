@@ -9,6 +9,23 @@ h1{
 	font-size: 15px;
 	font-family: "Lucida Sans Unicode";
 }
+section{
+	background: none;
+	padding: 30px;
+}
+
+footer {
+	background: #edecf1;
+	padding: 30px;
+}
+p{
+        margin: 15px 0 0 27px;
+        padding: 0;
+        font-size: 15px;
+        font-family: "Times New Roman", Times, serif;
+	float: center;
+}
+
 
 .brand-logo{
 	width: 200px;
@@ -54,7 +71,6 @@ th, td {
 }
 hr{
 	 position: relative;
-         width: 20%;
          background: black;
 }
 

@@ -29,17 +29,22 @@
                 <section>
                         <header>
                                 <h1>Events Sofar...</h1>
-                                <hr>
                         </header>
+			<hr>
 
                      <table>
                             <tr>
                                      <td> {% for event in details %}</td>
-                                     <td><h1>{{ event.name }}</h1> </td>
+				     <td><h1><u>{{ event.name }}</u></h1></br><p> {{ event.description }}</p>
+						     <p>Event_Date: {{ event.event_date }}</p>  
+						     <p>Speakers: <u>{{ event.speaker }}</u></p> </td>
                                       {% endfor %}
                              </tr>
                      </table>
                 </section>
+        <footer>
+                   <p> Copyright@osgroup-techies.com </p>
+        </footer>
         </body>
 
 </html>
