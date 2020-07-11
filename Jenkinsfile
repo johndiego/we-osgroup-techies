@@ -1,5 +1,7 @@
 node("Django-Node") {
 
+     MESG="TEST CODE GOES HERE"
+
      stage (" CHECKOUT AND TEST "){
             
              stage("Code Checkout"){
@@ -14,7 +16,7 @@ node("Django-Node") {
   
     stage (" TEST " ){
     
-           sh "echo "TEST CODE GOES HERE" "
+           sh "echo ${MESG} "
  
    }
 
