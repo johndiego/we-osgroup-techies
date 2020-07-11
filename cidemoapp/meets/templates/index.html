@@ -33,17 +33,20 @@
 			<hr>
 
                      <table>
-                            <tr>
-                                     <td> {% for event in details %}</td>
-				     <td><h1><u>{{ event.name }}</u></h1></br><p> {{ event.description }}</p>
-						     <p>Event_Date: {{ event.event_date }}</p>  
-						     <p>Speakers: <u>{{ event.speaker }}</u></p> </td>
-                                      {% endfor %}
-                             </tr>
+			              <tr>
+                                      {% for event in details %}
+				      <td>
+			         <p><h2>{{ event.name }}</h2></br></br>
+				  Description: {{ event.description }}</br></br>
+				  Event_Date: {{ event.event_date }}</br></br>
+				  Speakers: {{ event.speaker }}</td>
+				  </p>
+                                  {% endfor %}
+				  </tr>
                      </table>
                 </section>
         <footer>
-                   <p> Copyright@osgroup-techies.com </p>
+                   <small>&copy; Copyright {% now "Y" %}, osgroup-techies</small>
         </footer>
         </body>
 

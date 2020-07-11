@@ -1,6 +1,6 @@
 node("Django-Node") {
 
-     stage (" BUILD "){
+     stage (" CHECKOUT AND TEST "){
             
              stage("Code Checkout"){
                
@@ -14,11 +14,18 @@ node("Django-Node") {
   
     stage (" TEST " ){
     
-           sh "python devops4u/manage.py test devops4u/dsa"
+           sh "echo "TEST CODE GOES HERE" "
  
    }
 
 
+    stage(" BUILD IMAGE AND PUSH TO REGISTRY "){
+
+     
+
+    }
+
+   
      
      
 }
