@@ -1,5 +1,5 @@
 from django.shortcuts import render
-import logging 
+import logging
 from .models import Event
 
 logger = logging.getLogger(__name__)
