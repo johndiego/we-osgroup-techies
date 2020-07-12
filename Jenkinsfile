@@ -35,9 +35,12 @@ node("Django-Node") {
 
         }
 
-        stage ("DOCKER HUB LOGIN"){
+        stage ("DOCKER HUB LOGIN AND PUSH "){
 
-          sh "docker login --username osgroupgeeks"
+          sh "docker login --username ${env.DOCKER_HUB_USERNAME} -p ${DOCKER_HUB_TOKEN}"
+
+          sh "docker push osgroupgeeks/cidemo:${BRANCH_NAME}_${env.BUILD_NUMBER}"
+
 
          }
 
