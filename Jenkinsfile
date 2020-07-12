@@ -25,7 +25,7 @@ node("Django-Node") {
   
          stage("IMAGE BUILD"){
 
-         sh "docker build -t cidemo:${BRANCH_NAME}_${env.BUILD_NUMBER} ." 
+         sh "docker build -t cidemo:${BRANCH}_${env.BUILD_NUMBER} ." 
         
         }
 
