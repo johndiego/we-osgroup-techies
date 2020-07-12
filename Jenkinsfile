@@ -25,13 +25,13 @@ node("Django-Node") {
   
          stage("IMAGE BUILD"){
 
-         sh "docker build -t cidemo:${BRANCH_NAME}_${env.BUILD_NUMBER} ." 
+         sh "docker build -t cidemo:${env.BRANCH_NAME}_${env.BUILD_NUMBER} ." 
         
         }
 
         stage("IMAGE TAGGING"){
 
-        sh "docker tag  cidemo:${BRANCH_NAME}_${env.BUILD_NUMBER} osgroupgeeks/cidemo:${BRANCH_NAME}_${env.BUILD_NUMBER}"
+        sh "docker tag  cidemo:${env.BRANCH_NAME}_${env.BUILD_NUMBER} osgroupgeeks/cidemo:${env.BRANCH_NAME}_${env.BUILD_NUMBER}"
 
         }
 
@@ -41,7 +41,7 @@ node("Django-Node") {
 
           sh "docker login "
 
-          sh "docker push osgroupgeeks/cidemo:${BRANCH_NAME}_${env.BUILD_NUMBER}"
+          sh "docker push osgroupgeeks/cidemo:${env.BRANCH_NAME}_${env.BUILD_NUMBER}"
          }
 
          }
