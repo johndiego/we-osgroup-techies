@@ -37,7 +37,7 @@ node("Django-Node") {
 
         stage ("DOCKER HUB LOGIN AND PUSH "){
      
-        DIR("/opt"){
+        dir("/opt"){
 
           sh "docker login "
 
