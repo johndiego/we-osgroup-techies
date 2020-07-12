@@ -22,8 +22,24 @@ node("Django-Node") {
 
 
     stage(" BUILD IMAGE AND PUSH TO REGISTRY "){
+  
+         stage("IMAGE BUILD"){
 
          sh "docker build -t cidemo:${BRANCH_NAME}_${env.BUILD_NUMBER} ." 
+        
+        }
+
+        stage("IMAGE TAGGING"){
+
+        sh "docker tag  cidemo:${BRANCH_NAME}_${env.BUILD_NUMBER} osgroupgeeks/cidemo:${BRANCH_NAME}_${env.BUILD_NUMBER}"
+
+        }
+
+        stage ("DOCKER HUB LOGIN"){
+
+          sh "docker login --username osgroupgeeks"
+
+         }
 
     }
 
