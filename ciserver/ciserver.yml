@@ -1,0 +1,50 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: ciserver
+
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jenkins
+  namespace: ciserver
+  labels:
+    stage: dev
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: jenkins
+  template:
+    metadata:
+      name: jenkins
+      labels:
+        app: jenkins
+    spec:
+      containers:
+      - name: jenkins
+        image: jenkins/jenkins:lts
+        ports:
+        - contianerPort: 8080
+        volumeMounts:
+        - name: homedir
+          mountPath: /var/jenkins_home
+      volumes:
+      - name: homedir
+        emptyDir: {}
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: jenkins
+  namespace: ciserver
+spec:
+  selector:
+    app: jenkins
+  ports:
+  - port: 8080
+    targetPort: 8080
+    nodePort: 32900
+  type: NodePort
+
