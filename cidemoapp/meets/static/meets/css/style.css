@@ -6,9 +6,45 @@ h1{
 	margin: 15px 0 0 27px;
 	padding: 0;
 	display: inline-block;
+	color:  #f2d53c;
 	font-size: 15px;
 	font-family: "Lucida Sans Unicode";
 }
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+h2{
+        margin: 15px 0 0 27px;
+        padding: 0;
+        display: inline-block;
+        color:  #12343b;
+        font-size: 15px;
+	text-decoration: underline;
+        font-family: "Lucida Sans Unicode";
+}
+
+section{
+	background: none;
+	padding: 30px;
+}
+
+footer {
+	background: #a28089;
+	padding: 40px;
+}
+p{
+        margin: 15px 0 0 27px;
+	background-color: #2d545e;
+        padding: 3px;
+        font-size: 16px;
+        font-family: "Times New Roman", Times, serif;
+	display: block;
+	float: center;
+}
+
 
 .brand-logo{
 	width: 200px;
@@ -22,7 +58,7 @@ h1{
 	border: none;
 }
 .container{
-	background: #edecf1;
+	background: #a28089;
 	font-family: "Times New Roman", Times, serif;
 }
 
@@ -54,7 +90,6 @@ th, td {
 }
 hr{
 	 position: relative;
-         width: 20%;
          background: black;
 }
 
