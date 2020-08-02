@@ -1,0 +1,39 @@
+node("Deploy-Server"){
+
+  // Get the Image
+
+  def IMAGE="osgroupgeeks/cidemo:${ARTIFACTS}"
+  
+
+  // Stage 1 : Checkout SCM
+
+  stage("Get the Deployment Artifacts"){
+     
+    checkout scm
+
+      stage ("Get The Latest Changes") {
+        sh ('git log  --pretty=format:"%Cred%an - %ar%n %Cblue %h -%Cgreen %s %n" -n 5')
+      }
+
+  }
+
+
+  // --------------------------------------------------------------
+
+ 
+  // Stage 2: Create The Deploy Artifacts
+  
+  stage ("Create The App Manifests"){
+  
+    dir("cddemo"){
+    
+       sh('source app ; envsubst < app.yml >app_manifest.yml')
+
+    }
+
+  }  
+  
+
+
+}
+

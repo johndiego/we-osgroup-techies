@@ -59,9 +59,3 @@ node("Django") {
   finally{}
 }
 
-//node("Deployment-Server"){
-
-  // Get the Image
-
-//}
-
