@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
       - name: ${APP_NAME}
-        image: ${IMAGE}
+        image: osgroupgeeks/cidemo:${IMAGE}
         ports:
         - containerPort: ${APP_PORT}
 ---

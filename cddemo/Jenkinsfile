@@ -2,7 +2,7 @@ node("Deployment-Server"){
 
   // Get the Image
 
-  def IMAGE="osgroupgeeks/cidemo:${ARTIFACTS}"
+  def IMAGE="${ARTIFACTS}"
   
 
   // Stage 1 : Checkout SCM
