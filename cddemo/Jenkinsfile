@@ -1,4 +1,4 @@
-node("Deploy-Server"){
+node("Deployment-Server"){
 
   // Get the Image
 
@@ -27,7 +27,7 @@ node("Deploy-Server"){
   
     dir("cddemo"){
     
-       sh('source app ; envsubst < app.yml >app_manifest.yml')
+       sh("source app ${IMAGE} ; envsubst < app.yml >app_manifest.yml")
 
     }
 
