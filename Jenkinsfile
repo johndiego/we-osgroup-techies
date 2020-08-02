@@ -1,4 +1,4 @@
-node("Django-Node") {
+node("Django") {
 
   try{
 
