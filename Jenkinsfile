@@ -54,7 +54,14 @@ node("Django-Node") {
          }
 
   }
+  }
   catch(err){}
   finally{}
+}
+
+node("Deployment-Server"{
+
+  // Get the Image
+
 }
 
