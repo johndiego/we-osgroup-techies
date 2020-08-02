@@ -46,7 +46,7 @@ node("Django") {
 
         dir("/opt"){
 
-          sh "docker login --username=osgroupgeeks"
+          sh "docker login"
 
           sh "docker push osgroupgeeks/cidemo:${BRANCH}_${env.BUILD_NUMBER}"
          }
