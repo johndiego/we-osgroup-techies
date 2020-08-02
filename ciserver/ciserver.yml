@@ -2,8 +2,7 @@ apiVersion: v1
 kind: Namespace
 metadata:
   name: ciserver
-
-
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -26,14 +25,14 @@ spec:
       - name: jenkins
         image: jenkins/jenkins:lts
         ports:
-        - contianerPort: 8080
+        - containerPort: 8080
         volumeMounts:
         - name: homedir
           mountPath: /var/jenkins_home
       volumes:
       - name: homedir
         emptyDir: {}
-
+---
 apiVersion: v1
 kind: Service
 metadata:
@@ -45,6 +44,6 @@ spec:
   ports:
   - port: 8080
     targetPort: 8080
-    nodePort: 32900
+    nodePort: 32700
   type: NodePort
 
