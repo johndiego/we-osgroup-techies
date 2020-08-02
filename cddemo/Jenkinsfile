@@ -27,7 +27,7 @@ node("Deployment-Server"){
   
     dir("cddemo"){
     
-       sh(". ./app ${IMAGE} ; envsubst < app.yml >app_manifest.yml")
+       sh("./app ${IMAGE} ; envsubst < app.yml >app_manifest.yml")
 
 
        stage("Apply The Manifests"){
