@@ -36,6 +36,16 @@ node("Deployment-Server"){
 
            sh("sudo kubectl apply -f app_manifest.yml")
        }
+     
+       stage("Image Rollout Status"){
+          
+          stage("Switching Context To Current Namespace"){
+    
+            sh("kubectl config set-context --current --namespace=${env.NAMESPACE}")
+
+
+          }
+       }
 
     }
 
