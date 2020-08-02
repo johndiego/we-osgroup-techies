@@ -1,4 +1,4 @@
-eaode("Django-Node") {
+node("Django-Node") {
 
   try{
 
