@@ -29,6 +29,12 @@ node("Deployment-Server"){
     
        sh(". ./app ${IMAGE} ; envsubst < app.yml >app_manifest.yml")
 
+
+       stage("Apply The Manifests"){
+
+           sh("sudo kubectl apply -f app_manifest.yml")
+       }
+
     }
 
   }  
