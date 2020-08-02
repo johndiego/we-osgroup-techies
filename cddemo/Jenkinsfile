@@ -3,6 +3,8 @@ node("Deployment-Server"){
   // Get the Image
 
   def IMAGE="${ARTIFACTS}"
+  def NAMESPACE="osgroup-techies"
+  def APP_NAME="cddemo"
   
 
   // Stage 1 : Checkout SCM
@@ -41,9 +43,13 @@ node("Deployment-Server"){
           
           stage("Switching Context To Current Namespace"){
     
-            sh("kubectl config set-context --current --namespace=${env.NAMESPACE}")
+            sh("sudo kubectl config set-context --current --namespace=${NAMESPACE}")
 
 
+          }
+          
+          stage ("Image Rollout Status"){
+            sh("sudo kubectl rollout status deployment ${APP_NAME}") 
           }
        }
 
