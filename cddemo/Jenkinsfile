@@ -29,7 +29,7 @@ node("Deployment-Server"){
       
        sh("chmod u+x app")
     
-       sh("./app ${IMAGE} ; envsubst < app.yml >app_manifest.yml")
+       sh(". ./app ${IMAGE} ; envsubst < app.yml >app_manifest.yml")
 
 
        stage("Apply The Manifests"){
