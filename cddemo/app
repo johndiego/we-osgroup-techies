@@ -1,6 +1,6 @@
 export NAMESPACE="osgroup-techies"
 export APP_NAME="cddemo"
 export APP_PORT=8000
-export REPLICAS=2
+export REPLICAS=3
 
 
