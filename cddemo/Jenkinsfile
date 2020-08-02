@@ -26,6 +26,8 @@ node("Deployment-Server"){
   stage ("Create The App Manifests"){
   
     dir("cddemo"){
+      
+       sh("chmod u+x app")
     
        sh("./app ${IMAGE} ; envsubst < app.yml >app_manifest.yml")
 
