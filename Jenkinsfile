@@ -1,42 +1,49 @@
-node("Django-Node") {
+eaode("Django-Node") {
 
-     MESG="TEST CODE GOES HERE"
+  try{
 
-     stage (" CHECKOUT AND TEST "){
-            
-             stage("Code Checkout"){
-               
-                 checkout scm
-             }
-          
-            stage("Latest Changes Pushed "){
-                sh " git log -5 "
-            }
-     }
-  
-    stage (" TEST " ){
+    // Declare Variables
+
+    def STAGE_REGISTRY="cideo_stage"
     
-           sh "echo ${MESG} "
- 
+
+    // Stage 1: Get The Code From SCM
+    stage("Get The Latest Code") {
+
+      checkout scm
+
+      stage ("Get The Latest Changes") {
+        sh ('git log  --pretty=format:"%Cred%an - %ar%n %Cblue %h -%Cgreen %s %n" -n 5')
+      }
+
+    }
+
+
+
+   // Stage 2: Test The code 
+   stage ("Get The Code Tested"){
+   
+       
+      
    }
 
+   // --------------------------------------------------------
+   stage("Build The Docker Image and Push To The DockerHub "){
 
-    stage(" BUILD IMAGE AND PUSH TO REGISTRY "){
-  
-         stage("IMAGE BUILD"){
+         stage("Building Image "){
 
-         sh "docker build -t cidemo:${BRANCH}_${env.BUILD_NUMBER} ." 
-        
+         sh "docker build -t cidemo:${BRANCH}_${env.BUILD_NUMBER} ."
+
         }
 
-        stage("IMAGE TAGGING"){
+        stage("Tagging Image"){
 
         sh "docker tag  cidemo:${BRANCH}_${env.BUILD_NUMBER} osgroupgeeks/cidemo:${BRANCH}_${env.BUILD_NUMBER}"
 
         }
 
-        stage ("DOCKER HUB LOGIN AND PUSH "){
-     
+        stage ("Docker Login"){
+
         dir("/opt"){
 
           sh "docker login "
@@ -46,9 +53,8 @@ node("Django-Node") {
 
          }
 
-    }
-
-   
-     
-     
+  }
+  catch(err){}
+  finally{}
 }
+
